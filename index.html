@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Crud</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+        integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+    <script src="http://jqueryvalidation.org/files/dist/jquery.validate.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <form class="was-validated">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>
+                        Projeto CRUD
+                        <small class="text-muted">Rede de distribuidora de bebidas</small>
+                    </h3>
+                </div>
+                <div class="row" style="margin-top: 30px;">
+                    <div class="col-md-12">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalRegistro"
+                            style="margin: 15px 10px 25px 35px;">
+                            Adicionar Cliente </button>
+                    </div>
+                </div>
+
+            </div>
+            <div>
+                <div class="row" style="margin-top: 30px;">
+                    <div class="col-md-12">
+                        <table id="tblDados" class="table table-hover">
+                            <thead>
+                                <tr>
+
+                                    <th scope="col">#</th>
+                                    <th scope="col">Nome</th>
+                                    <th scope="col">Sobrenome</th>
+                                    <th scope="col">CPF/CNPJ</th>
+                                    <th scope="col">Documentação</th>
+                                    <th scope="col">Tipo</th>
+                                    <th scope="col">Telefone</th>
+                                    <th scope="col">Tipo</th>
+                                    <th scope="col">Endereço</th>
+                                    <th scope="col" style="width: 50px;"></th>
+                                    <th scope="col" style="width: 50px;"></th>
+                                </tr>
+
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="modalRegistro" tabindex="-1" aria-labelledby="modalRegistroLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalRegistroLabel">Registro de Cliente</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+
+                        <input id="hdID" type="hidden" />
+
+                        <div class="rom">
+                            <div class="col-md-10">
+                                <div class="form-group">
+                                    <label for="Nome">Nome</label>
+                                    <input id="txtNome" type="text" class="form-control"
+                                        placeholder="Digite o Nome do cliente" required />
+
+                                </div>
+                            </div>
+                            <div class="col-md-10">
+                                <div class="form-group">
+                                    <label for="Sobrenome">Sobrenome</label>
+                                    <input id="txtSobrenome" type="text" class="form-control"
+                                        placeholder="Digite o Sobrenome do cliente" required />
+
+                                </div><br>
+                                <div class="form-group">
+                                    <label for="CPF_CNPJ">Informar se é CPF ou CNPJ</label>
+                                    <input id="txtCPF_CNPJ" type="text" class="form-control" placeholder="CPF/CNPJ"
+                                        required />
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="Documentacao">Documentação</label>
+                                    <input id="txtDocumentacao" type="number" class="form-control"
+                                        placeholder="Digite o numero do CPF ou CNPJ" autocomplete="off" maxlength="18"
+                                        required />
+                                </div><br>
+
+                            </div><br>
+                            <div class="rom">
+                                <div class="form-group">
+                                    <div class="col-md-10">
+                                        <label for="InTelefone">Informar o tipo de Telefone</label>
+                                        <input id="txtInTelefone" type="text" class="form-control"
+                                            placeholder="celular, Recidencial ou comercial" required />
+                                        <label for="Telefone">Telefone</label>
+                                        <div class="form-group">
+                                            <input id="txtTelefone" type="number" class="form-control"
+                                                placeholder="Digite o numero do Telefone celular, Recidencial ou comercial"
+                                                required />
+                                        </div>
+
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            <br>
+
+                            <div class="rom">
+                                <div class="col-md-10">
+                                    <div class="form-group">
+                                        <label for="QualEndereco">Qual tipo de Endereço</label>
+                                        <input id="txtQualEndereco" type="text" class="form-control"
+                                            placeholder="Digite se é Comercial, Cobranca, Recidencial, Entrega ou Correspondencia"
+                                            required />
+
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="Endereco">Endereço</label><br>
+                                        <div class="form-group">
+                                            <input id="txtEndereco" type="text" class="form-control"
+                                                placeholder="Digite o Endereço aqui" required />
+
+                                        </div><br>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                                    <button id="btnSalvar" type="button" class="btn btn-primary"
+                                        value="cadastrar">cadastrar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+        integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2"
+        crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+    <script src="validacao.js"></script>
+</body>
+
+</html>

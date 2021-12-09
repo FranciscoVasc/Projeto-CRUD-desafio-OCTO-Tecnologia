@@ -1,0 +1,18 @@
+
+body {
+    background-image: url(imgs.jpg);
+ 	background-size: 120%;
+}
+
+.container-fluid {
+    background-color: #FFF;
+    padding: 50px;
+    margin: 50px auto 0 auto;
+    box-shadow: 10px 16px 20px;
+    border-radius: 50px;
+   
+}
+
+.vermelho{
+    color: red;
+}
